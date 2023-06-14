@@ -1,0 +1,33 @@
+#https://www.tpisoftware.com/tpu/articleDetails/1826
+version: "3.7"
+
+services:
+
+  flask:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hcc_server
+    # restart: always
+    environment:
+      - APP_NAME=FlaskApp
+    ports:
+      - 8999:8999
+    depends_on:
+      - db
+    restart: always
+
+  db:
+    build:
+      context: ./sqldata
+      dockerfile: Dockerfile
+    container_name: hcc_mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
+    #資料持久化與本機共享資料夾
+    #volumes:
+    #  - ./sqldata:/docker-entrypoint-initdb.d
