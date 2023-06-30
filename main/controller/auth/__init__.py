@@ -14,10 +14,28 @@ class AuthInit:
     Remain = auth.model(
         "Remain",
         {
-            "ReadId": fields.Integer(readonly=True),
-            "Time": fields.String,
+            "RemainId": fields.Integer(readonly=True),
+            "RemainTime": fields.String,
             "ReadNum": fields.Integer,
             "ReadTime": fields.Integer,
-            "Read": fields.Boolean,
+            "UserNo": fields.String,
+        },
+    )
+
+    RemainPUT = auth.model(
+        "RemainPUT",
+        {
+            "RemainId": fields.Integer(),
+            "RemainTime": fields.String,
+            "ReadNum": fields.Integer,
+            "ReadTime": fields.Integer,
+            "UserNo": fields.String,
+        },
+    )
+
+    RemainDELETE = auth.model(
+        "RemainDELETE",
+        {
+            "RemainIdList": fields.List(fields.Integer)
         },
     )

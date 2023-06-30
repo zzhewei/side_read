@@ -1,19 +1,20 @@
 from flask_marshmallow import Marshmallow
-from main.model import User
-from marshmallow import validates_schema, fields, post_load
+from marshmallow import validates_schema, fields
+from main.model import Read
 
 
 ma = Marshmallow()
-'''
 
-class UserSchema(ma.SQLAlchemyAutoSchema):
-    # Email = fields.Email()
-    # Password = fields.String()
-    # PeriodId = fields.List(fields.Integer)
+
+class ReadSchema(ma.SQLAlchemyAutoSchema):
+    UserNo = fields.String(load_only=True)
+    URL = fields.Url()
+    ReadIdList = fields.List(fields.Integer)
+    UpdateTime = fields.String()
 
     class Meta:
-        model = User
-        # exclude = ['CreateTime', 'UpdateTime', 'PasswordHash']
+        model = Read
+        exclude = ['CreateTime', 'CreateUser', 'UpdateUser']
         include_fk = True
 
     @validates_schema
@@ -38,4 +39,3 @@ class UserSchema(ma.SQLAlchemyAutoSchema):
     #     except Exception as e:
     #         current_app.logger.error(e)
     #         raise Exception("DB Operation Error")
-'''

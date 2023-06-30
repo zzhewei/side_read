@@ -1,19 +1,18 @@
 from flask_marshmallow import Marshmallow
-from main.model import User
-from marshmallow import validates_schema, fields, post_load
+from marshmallow import validates_schema, fields
+from main.model import Category
 
 
 ma = Marshmallow()
-'''
 
-class UserSchema(ma.SQLAlchemyAutoSchema):
-    # Email = fields.Email()
-    # Password = fields.String()
-    # PeriodId = fields.List(fields.Integer)
+
+class CategorySchema(ma.SQLAlchemyAutoSchema):
+    UserNo = fields.String(load_only=True)
+    CategoryIdList = fields.List(fields.Integer)
 
     class Meta:
-        model = User
-        # exclude = ['CreateTime', 'UpdateTime', 'PasswordHash']
+        model = Category
+        exclude = ['CreateTime', 'UpdateTime', 'CreateUser', 'UpdateUser']
         include_fk = True
 
     @validates_schema
@@ -38,4 +37,3 @@ class UserSchema(ma.SQLAlchemyAutoSchema):
     #     except Exception as e:
     #         current_app.logger.error(e)
     #         raise Exception("DB Operation Error")
-'''

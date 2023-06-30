@@ -7,12 +7,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: hcc_server
+    container_name: read_server
     # restart: always
     environment:
       - APP_NAME=FlaskApp
     ports:
-      - 8999:8999
+      - 5555:5555
     depends_on:
       - db
     restart: always
@@ -21,13 +21,13 @@ services:
     build:
       context: ./sqldata
       dockerfile: Dockerfile
-    container_name: hcc_mysql
-    command: --default-authentication-plugin=mysql_native_password
+    container_name: read_postgresql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      - POSTGRES_PASSWORD=root
+
     ports:
-      - 3306:3306
+      - 5432:5432
     #資料持久化與本機共享資料夾
     #volumes:
     #  - ./sqldata:/docker-entrypoint-initdb.d

@@ -8,7 +8,7 @@ class CategoryInit:
         "CategoryPOST",
         {
             "CategoryId": fields.Integer(readonly=True),
-            "CategoryName":  fields.Integer,
+            "CategoryName":  fields.String,
             "UserNo":  fields.String,
         },
     )
@@ -17,7 +17,7 @@ class CategoryInit:
         "CategoryPUT",
         {
             "CategoryId": fields.Integer(),
-            "CategoryName":  fields.Integer,
+            "CategoryName":  fields.String,
             "UserNo":  fields.String,
         },
     )

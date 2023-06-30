@@ -17,9 +17,9 @@ class DevelopmentConfig(BaseConfig):
     JWT_REFRESH_TOKEN_EXPIRES = BaseConfig.ACCESS_EXPIRES * 24 * 30
     DEBUG = True
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SQLALCHEMY_DATABASE_URI = "postgresql://postgres:root@192.168.0.202:5432/imedtac?options=-c%20search_path=test"
+    SQLALCHEMY_DATABASE_URI = "postgresql://manga_1h1z_user:6xR37NTVTVsXQ9nJrB551sEVhtpKKZ0c@dpg-ch5lg0orddl7albugqeg-a.singapore-postgres.render.com/sideread"
     # if use docker compose use this
-    # SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:cvbn78910@localhost:3306/adc"
+    # SQLALCHEMY_DATABASE_URI = "postgresql://postgres:root@read_postgresql:5432/sideread"
 
 
 class TestingConfig(BaseConfig):

@@ -41,7 +41,7 @@ class ReadInit:
             "ReadId": fields.Integer(readonly=True),
             "CategoryId":  fields.Integer,
             "URL":  fields.Url,
-            "UserNo":  fields.String,
+            "UserNo": fields.String,
             "Star":  fields.Integer,
         },
     )
@@ -50,10 +50,10 @@ class ReadInit:
         "ReadPUT",
         {
             "ReadIdList": fields.List(fields.Integer()),
-            "CategoryId":  fields.Integer,
-            "UserNo":  fields.String,
-            "Star":  fields.Integer,
-            "Study":  fields.Boolean,
+            "CategoryId": fields.Integer,
+            "UserNo": fields.String,
+            "Star": fields.Integer,
+            "Read": fields.Boolean,
         },
     )
 

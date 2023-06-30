@@ -1,4 +1,4 @@
-# ADC
+# side_read
 ## If you want to generate requirements.txt
 **pipreqs ./ --encoding=utf8 --force** 
 
@@ -14,7 +14,3 @@
 ```
 python3 -m flask init
 ```
-
-## generate DB data to model
-**flask-sqlacodegen postgresql://postgres:root@localhost:5432/imedtac?options=-c%20search_path=core --outfile "module.py"**
-
